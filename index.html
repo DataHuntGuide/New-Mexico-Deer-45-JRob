@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_93cab386bd0348b4db3116dc28ce149c {
+                #map_7482717d727b1f89800c822273266695 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -39,27 +39,16 @@
 <body>
     
     
-    <script>
-    function addClickHandler(map) {
-        map.on('click', function(e) {
-            var lat = e.latlng.lat.toFixed(5);
-            var lng = e.latlng.lng.toFixed(5);
-            alert("Coordinates: " + lat + ", " + lng);
-        });
-    }
-    addClickHandler(map);
-    </script>
-    
-            <div class="folium-map" id="map_93cab386bd0348b4db3116dc28ce149c" ></div>
+            <div class="folium-map" id="map_7482717d727b1f89800c822273266695" ></div>
         
 </body>
 <script>
     
     
-            var map_93cab386bd0348b4db3116dc28ce149c = L.map(
-                "map_93cab386bd0348b4db3116dc28ce149c",
+            var map_7482717d727b1f89800c822273266695 = L.map(
+                "map_7482717d727b1f89800c822273266695",
                 {
-                    center: [35.7426650311111, -105.6294998638889],
+                    center: [35.87871, -105.64163],
                     crs: L.CRS.EPSG3857,
                     zoom: 10,
                     zoomControl: true,
@@ -71,16 +60,27 @@
 
         
     
-            var tile_layer_f276d7f74d971247edc409852d01c92a = L.tileLayer(
+            var tile_layer_204cdcda310e3ffb3fc583893270382e = L.tileLayer(
                 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_93cab386bd0348b4db3116dc28ce149c);
+            ).addTo(map_7482717d727b1f89800c822273266695);
         
     
-            var heat_map_3513e644000ab6ed35672717a72c0dea = L.heatLayer(
+            var heat_map_8ca0d95b40bf3b61a222c5ffbdc0e0c7 = L.heatLayer(
                 [[35.87871, -105.64163], [35.58108, -105.59967], [35.57412, -105.62766], [35.5784, -105.61783], [35.5862, -105.60075], [35.60139, -105.59875], [35.57191, -105.62606], [35.59486, -105.62756], [35.58081, -105.63821], [35.82748, -105.75051], [35.87275, -105.65819], [35.85564, -105.66374], [35.9184, -105.64905], [35.5856, -105.64118], [35.9963, -105.8662], [35.77286056, -105.70131755], [35.91964, -105.39694], [36.07182, -105.42575]],
-                {"blur": 10, "maxZoom": 18, "minOpacity": 0.5, "radius": 15}
-            ).addTo(map_93cab386bd0348b4db3116dc28ce149c);
+                {"blur": 15, "maxZoom": 18, "minOpacity": 0.5, "radius": 25}
+            ).addTo(map_7482717d727b1f89800c822273266695);
         
+    
+                function newMarker(e){
+                    var new_mark = L.marker().setLatLng(e.latlng).addTo(map_7482717d727b1f89800c822273266695);
+                    new_mark.dragging.enable();
+                    new_mark.on('dblclick', function(e){ map_7482717d727b1f89800c822273266695.removeLayer(e.target)})
+                    var lat = e.latlng.lat.toFixed(4),
+                       lng = e.latlng.lng.toFixed(4);
+                    new_mark.bindPopup("Latitude: " + lat + "<br>Longitude: " + lng );
+                    };
+                map_7482717d727b1f89800c822273266695.on('click', newMarker);
+            
 </script>
 </html>
