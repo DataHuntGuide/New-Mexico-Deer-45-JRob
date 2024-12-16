@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_93cab386bd0348b4db3116dc28ce149c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@master/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    
+    <script>
+    function addClickHandler(map) {
+        map.on('click', function(e) {
+            var lat = e.latlng.lat.toFixed(5);
+            var lng = e.latlng.lng.toFixed(5);
+            alert("Coordinates: " + lat + ", " + lng);
+        });
+    }
+    addClickHandler(map);
+    </script>
+    
+            <div class="folium-map" id="map_93cab386bd0348b4db3116dc28ce149c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_93cab386bd0348b4db3116dc28ce149c = L.map(
+                "map_93cab386bd0348b4db3116dc28ce149c",
+                {
+                    center: [35.7426650311111, -105.6294998638889],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f276d7f74d971247edc409852d01c92a = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_93cab386bd0348b4db3116dc28ce149c);
+        
+    
+            var heat_map_3513e644000ab6ed35672717a72c0dea = L.heatLayer(
+                [[35.87871, -105.64163], [35.58108, -105.59967], [35.57412, -105.62766], [35.5784, -105.61783], [35.5862, -105.60075], [35.60139, -105.59875], [35.57191, -105.62606], [35.59486, -105.62756], [35.58081, -105.63821], [35.82748, -105.75051], [35.87275, -105.65819], [35.85564, -105.66374], [35.9184, -105.64905], [35.5856, -105.64118], [35.9963, -105.8662], [35.77286056, -105.70131755], [35.91964, -105.39694], [36.07182, -105.42575]],
+                {"blur": 10, "maxZoom": 18, "minOpacity": 0.5, "radius": 15}
+            ).addTo(map_93cab386bd0348b4db3116dc28ce149c);
+        
+</script>
+</html>
